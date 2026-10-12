@@ -9,22 +9,22 @@ gameBoard.StartBoard();
 
 while (true)
 {
-Console.Clear();
-Console.WriteLine("=== 틱택토 게임 · 1 단계 ===");
-Console.WriteLine("두 사람이 X와 O를 번갈아 놓습니다. X가 먼저 시작합니다.");
-Console.WriteLine("");
-Console.WriteLine("위치 번호:");
-gameBoard.PrintLocation();
-Console.WriteLine("");
-Console.WriteLine("현재 보드:");
-gameBoard.PrintBoard();
-Console.WriteLine("");
-Console.WriteLine($"플레이어 {player}의 차례입니다.");
-Console.Write("위치를 선택하세요 (1~9): ");
+    Console.Clear();
+    Console.WriteLine("=== 틱택토 게임 · 1 단계 ===");
+    Console.WriteLine("두 사람이 X와 O를 번갈아 놓습니다. X가 먼저 시작합니다.");
+    Console.WriteLine("");
+    Console.WriteLine("위치 번호:");
+    gameBoard.PrintLocation();
+    Console.WriteLine("");
+    Console.WriteLine("현재 보드:");
+    gameBoard.PrintBoard();
+    Console.WriteLine("");
+    Console.WriteLine($"플레이어 {player}의 차례입니다.");
+    Console.Write("위치를 선택하세요 (1~9): ");
 
     bool isSelect = int.TryParse(Console.ReadLine(), out int select);
 
-    if (isSelect == false)
+    if (!isSelect)
     {
         Console.WriteLine("숫자를 입력해주세요");
         Thread.Sleep(1500);
@@ -39,7 +39,7 @@ Console.Write("위치를 선택하세요 (1~9): ");
 
     bool success = gameBoard.SelectLocation(select, player);
 
-    if(success == false)
+    if (!success)
     {
         Console.WriteLine("중복된 값입니다");
         Thread.Sleep(1500);

@@ -1,25 +1,24 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Reflection.Metadata.Ecma335;
-using System.Text;
 
 namespace TicTacToe_pg
 {
     internal class GameBoard
     {
-        private int[,] location = new int[3, 3];
+        private int[,] Location = new int[3, 3];
         private char[,] Board = new char[3, 3];
 
-       public void PrintLocation()
+        public void PrintLocation()
         {
             for (int i = 0; i < 3; i++)
             {
                 for (int j = 0; j < 3; j++)
                 {
-                    location[i, j] = i * 3 + j + 1;
-                    Console.Write(location[i, j]);
+                    Location[i, j] = i * 3 + j + 1;
+                    Console.Write(Location[i, j]);
                     if (j < 2)
+                    { 
                         Console.Write(" | ");
+                    }
                 }
                 Console.WriteLine();
                 if (i < 2)
@@ -36,7 +35,7 @@ namespace TicTacToe_pg
                 }
             }
         }
-       public void PrintBoard()
+        public void PrintBoard()
         {
             for (int i = 0; i < 3; i++)
             {
@@ -44,11 +43,15 @@ namespace TicTacToe_pg
                 {
                     Console.Write(Board[i, j]);
                     if (j < 2)
-                        Console.Write(" | ");
+                    { 
+                    Console.Write(" | ");
+                    }
                 }
                 Console.WriteLine();
                 if (i < 2)
+                { 
                     Console.WriteLine("---------");
+                }
             }
         }
         public bool SelectLocation(int select, char mark)
@@ -66,7 +69,7 @@ namespace TicTacToe_pg
         }
         public bool CheckWin(char mark)
         {
-            for(int i = 0; i < 3; i++)
+            for (int i = 0; i < 3; i++)
             {
                 if (Board[0, i] == mark && Board[1, i] == mark && Board[2, i] == mark)
                 {
@@ -78,15 +81,15 @@ namespace TicTacToe_pg
                 }
             }
 
-            if (Board[0, 0] == mark && Board[1, 1] == mark &&Board[2, 2] == mark)
-                {
-                    return true;
-                }
-                else if (Board[0, 2] == mark && Board[1, 1] == mark && Board[2, 0] == mark)
-                {
-                    return true;
-                }
-           
+            if (Board[0, 0] == mark && Board[1, 1] == mark && Board[2, 2] == mark)
+            {
+                return true;
+            }
+            else if (Board[0, 2] == mark && Board[1, 1] == mark && Board[2, 0] == mark)
+            {
+                return true;
+            }
+
             return false;
         }
     }
