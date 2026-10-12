@@ -47,7 +47,7 @@ Console.Write("위치를 선택하세요 (1~9): ");
     }
 
     bool win = gameBoard.CheckWin(player);
-    if (win == true)
+    if (win)
     {
         Console.Clear();
         Console.WriteLine("=== 틱택토 게임 · 1 단계 ===");
